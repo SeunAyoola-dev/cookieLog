@@ -1,28 +1,41 @@
-from datetime import datetime
+import logging
 import argparse
-import os
 
-DATE_FORMAT = '%Y-%m-%d'
-def parse_date(value):
-    """Validate and return date string in YYYY-MM-DD format"""
-    try:
-        datetime.strptime(value, DATE_FORMAT)
-        return value
+logger = logging.getLogger(__name__)
 
-    except ValueError:
+DATE_FORMAT = "YYYY-MM-DD"
+
+def parse_date(value: str) -> str:
+    """Validate and return date string in YYYY-MM-DD format."""
+    parts = value.split("-")
+
+    if (
+        len(parts) != 3
+        or len(parts[0]) != 4
+        or len(parts[1]) != 2
+        or len(parts[2]) != 2
+        or not all(part.isdigit() for part in parts)
+    ):
+        logger.error(f"Invalid date format provided: {value}")
         raise argparse.ArgumentTypeError(
-            f"Invalid date format: {value}. Must be YYYY-MM-DD"
+            f"Invalid date format: '{value}'. Must be {DATE_FORMAT}"
         )
+
+    return value
 
 def parse_file(value):
+    try:
+        open(value).close()
 
-    if not os.path.exists(value):
+    except FileNotFoundError:
+        logger.error(f"File not found: {value}")
         raise argparse.ArgumentTypeError(
-            f"File does not exist: {value}"
+            f"File not found: {value}"
         )
-    if not os.path.isfile(value):
+    except IsADirectoryError:
+        logger.error(f"Path is not a file: {value}")
         raise argparse.ArgumentTypeError(
-            f"Not a valid file: {value}"
+            f"Path is not a file: {value}"
         )
 
     return value
