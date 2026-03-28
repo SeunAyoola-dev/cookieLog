@@ -1,5 +1,5 @@
 import logging
-
+from helpers.helpers import parse_date
 logger = logging.getLogger(__name__)
 
 def parse_input_file(file_path, target_date):
@@ -14,16 +14,20 @@ def parse_input_file(file_path, target_date):
                 cookie, timestamp = line.strip().split(",")
                 date = timestamp.split("T")[0]
 
+                parse_date(date)
+
                 if date == target_date:
                     counts[cookie] = counts.get(cookie, 0) + 1
+
 
                 elif date < target_date:
                     logger.debug(f"[INFO] Early exit at line {line_num} because date {date} < target_date {target_date}")
                     break # break early
 
-            except ValueError as e:
+            except Exception as e:
                 logger.warning(f"[ERROR] Skipping malformed line {line_num}: {line.strip()} - {e}")
                 continue
+
 
     return counts
 
@@ -41,10 +45,11 @@ def process(file, date):
     
     if not counts:
         logger.warning(f"[WARNING] No cookies found for date: {date}")
-        return
+
 
     most_active_cookies = find_most_active_cookies(counts)
     logger.info(f"[INFO] Found {len(most_active_cookies)} most active cookie(s) for {date}")
 
     for cookie in most_active_cookies:
         print(cookie)
+

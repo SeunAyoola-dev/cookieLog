@@ -16,6 +16,26 @@ This tool processes a CSV log file containing cookies and timestamps. It identif
 ## Prerequisites
 
 - Python 3.6+
+- **Development Dependencies**: `pytest` and `parameterized` (for running tests).
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <repository_url>
+   cd cookieLog
+   ```
+
+2. (Optional) Create a virtual environment:
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+   ```
+
+3. Install the required dependencies for development:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ## Usage
 
@@ -71,3 +91,14 @@ Logs are output  using the following format:
 - `processor.py`: Core logic for parsing and finding active cookies.
 - `helpers/helpers.py`: CLI argument parsing construction and validation
 - `cookie_log.csv`: Sample log file.
+- `requirements.txt`: Project dependencies for development and testing.
+- `test/`: Directory containing project tests.
+
+## Running Tests
+
+The project uses `pytest` and `parameterized` for testing. You can run the tests using:
+
+
+```bash
+python3 -m pytest
+```
