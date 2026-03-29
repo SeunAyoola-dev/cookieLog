@@ -8,10 +8,10 @@ This tool processes a CSV log file containing cookies and timestamps. It identif
 
 ## Features
 
-- **Efficient Parsing**: Processes logs and terminates early if it moves past the target date (assuming log file is sorted by datetime (UTC) descending).
-- **Robust Validation**: Validates file is present and provided date formats.
-- **Production Logging**: Integrated with Python's `logging` module to provide visibility into processing steps
-- **Thorough Testing**: Unit & Integration testing to ensure the tool works as expected
+- **Parsing**: Processes logs and terminates early if it moves past the target date (assuming log file is sorted by datetime (UTC) descending).
+- **Validation**: Validates file is present and provided date formats.
+- **Logging**: Integrated with Python's `logging` module to provide visibility into processing steps
+- **Testing**: Unit & Integration testing to ensure the tool works as expected
 
 ## Prerequisites
 
