@@ -1,5 +1,5 @@
 import logging
-from helpers.helpers import build_arg_parser
+from helpers import build_arg_parser
 from processor import process
 
 logging.basicConfig(
