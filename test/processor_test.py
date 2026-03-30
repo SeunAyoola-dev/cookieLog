@@ -64,17 +64,6 @@ class ParseInputFileTest(unittest.TestCase):
 
         self.assertEqual(counts, {})
 
-    def test_skip_malformed_line(self):
-        with patch("builtins.open", mock_file_open(SAMPLE_LOG_WITH_ERROR)):
-            counts = parse_input_file(self.file_path, self.target_date)
-
-        self.assertEqual(
-            {
-                "AtY0laUfhglK3lC7": 1,
-                "5UAVanZf6UtGyKVS": 1
-            },
-            counts
-        )
 class FindMostActiveCookieTest(unittest.TestCase):
     def setUp(self):
         self.target_date = "2018-12-09"

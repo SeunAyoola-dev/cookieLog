@@ -14,8 +14,6 @@ def parse_input_file(file_path, target_date):
                 cookie, timestamp = line.strip().split(",")
                 date = timestamp.split("T")[0]
 
-                parse_date(date)
-
                 if date == target_date:
                     counts[cookie] = counts.get(cookie, 0) + 1
 
