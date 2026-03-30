@@ -25,7 +25,7 @@ def parse_input_file(file_path, target_date):
                     break # break early
 
             except Exception as e:
-                logger.warning(f"[ERROR] Skipping malformed line {line_num}: {line.strip()} - {e}")
+                logger.warning(f"[WARNING] Skipping malformed line {line_num}: {line.strip()} - {e}")
                 continue
 
 
@@ -52,4 +52,6 @@ def process(file, date):
 
     for cookie in most_active_cookies:
         print(cookie)
+
+
 
