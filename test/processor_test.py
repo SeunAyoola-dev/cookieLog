@@ -15,14 +15,6 @@ SAMPLE_LOG = (
     "4sMM2LxV07bPJzwf,2018-12-07T23:30:00+00:00\n"
 )
 
-SAMPLE_LOG_WITH_ERROR = (
-    "cookie,timestamp\n"
-    "AtY0laUfhglK3lC7,2018-12-09T14:19:00+00:00\n"
-    "SAZuXPGUrfbcn5UA,invalid\n"
-    "5UAVanZf6UtGyKVS,\n"
-    "5UAVanZf6UtGyKVS,2018-12-09T07:25:00+00:00\n"
-)
-
 SAMPLE_LOG_WITH_MULTIPLE_ACTIVE_COOKIES = (
     "cookie,timestamp\n"
     "AtY0laUfhglK3lC7,2018-12-09T14:19:00+00:00\n"
