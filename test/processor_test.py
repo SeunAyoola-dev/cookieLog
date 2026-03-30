@@ -39,7 +39,7 @@ SAMPLE_LOG_WITH_MULTIPLE_ACTIVE_COOKIES = (
 def mock_file_open(content):
     return mock_open(read_data=content)
 
-class parse_input_file_test(unittest.TestCase):
+class ParseInputFileTest(unittest.TestCase):
     def setUp(self):
         self.target_date = "2018-12-09"
         self.none_date = "2020-12-09"
@@ -75,7 +75,7 @@ class parse_input_file_test(unittest.TestCase):
             },
             counts
         )
-class find_most_active_cookie_test(unittest.TestCase):
+class FindMostActiveCookieTest(unittest.TestCase):
     def setUp(self):
         self.target_date = "2018-12-09"
 
@@ -109,7 +109,7 @@ class find_most_active_cookie_test(unittest.TestCase):
             active_cookies
         )
 
-class process_test(unittest.TestCase):
+class ProcessTest(unittest.TestCase):
     def setUp(self):
         self.target_date = "2018-12-09"
         self.none_date = "2020-12-09"

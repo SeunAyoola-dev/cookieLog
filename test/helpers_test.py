@@ -4,7 +4,7 @@ import argparse
 from parameterized import parameterized
 from unittest.mock import patch
 
-class parse_date_test(unittest.TestCase):
+class ParseDateTest(unittest.TestCase):
     def test_parse_valid_date(self):
         valid_date = "2018-12-09"
         self.assertEqual(
